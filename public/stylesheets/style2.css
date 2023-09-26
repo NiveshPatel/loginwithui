@@ -1,0 +1,371 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+#main {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+}
+#main>i{
+    font-size: 40px;
+    color: #fff;
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    cursor: pointer;
+}
+#bgbox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 83%;
+
+    border-radius: 10px;
+
+}
+
+#overlay {
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 93, 0.604);
+    /* mix-blend-mode: color; */
+    border-radius: 10px;
+    pointer-events: none;
+
+}
+
+#bgbox>img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+#profile {
+    /* align-items: center; */
+    /* justify-content: center; */
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 115%;
+    right: 8%;
+    border-radius: 5px;
+    overflow: hidden;
+    position: absolute;
+    top: -7.3%;
+    /* background-color: rgb(0, 34, 137); */
+}
+
+#box1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50%;
+    background-color: #fff;
+}
+
+#box2 {
+    position: relative;
+    background-color: #fff;
+    width: 100%;
+    height: 50%;
+
+}
+
+#circ {
+    cursor: pointer;
+    margin-top: -20px;
+    overflow: hidden;
+    width: 230px;
+    height: 230px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+#circ>img {
+    object-fit: cover;
+    object-position: bottom;
+    width: 100%;
+    height: 100%;
+}
+
+#box1 h1{
+    position: absolute;
+    top: 42%;
+    letter-spacing: .1px;
+    font-style: italic;
+    opacity: .8;
+
+}
+
+#first {
+    width: 100%;
+    margin-top: 20px;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    height: 25%;
+    background-color: #fff;
+}
+
+#inner {
+    line-height: .7;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+    align-items: center;
+    overflow: hidden;
+
+    width: 25%;
+    height: 90%;
+    /* background-color: #ca3d3d; */
+}
+
+#inner>h2 {
+    margin-top: 20px;
+    font-size: 22px;
+}
+
+#inner>h4 {
+    font-size: 13px;
+    font-family: ogg;
+    font-weight: 100;
+    opacity: .7;
+}
+
+.inner>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+#sec {
+    position: relative;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 45%;
+    margin-top: 20px;
+    /* background-color: #120f0f; */
+}
+
+.inner {
+    overflow: hidden;
+    border-radius: 3px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 30%;
+    height: 80%;
+    background-color: #fff;
+}
+
+#likecirc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55px;
+    height: 55px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 30%;
+    right: 22%;
+}
+
+#likecirc a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    font-size: 29px;
+}
+a{
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+font-weight: 400;
+}
+#likecirc a:hover {
+    color: pink;
+}
+
+#hidden {
+    display: none;
+}
+
+#hidden2 {
+    display: none;
+}
+#searchbar{
+    /* overflow: auto; */
+    display: none;
+    position: absolute;
+    /* background-color: #fff; */
+    /* border: 2px solid #fff; */
+    width: 350px;
+    left: 1.2%;
+    top: 15%;
+    height: 50%;
+}
+#search{
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 17%;
+    width: 100%;
+    /* background-color: #b64949; */
+
+}
+#search input{
+    /* width: 80%;
+    height: 80%; */
+    padding: 8px 40px;
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    
+    margin-right: 10px;
+    font-family: ogg;
+    background-color: transparent;
+    border: 1px solid #6153ff;
+    
+    
+
+    
+    
+}
+#search>i{
+    color: #6153ff;
+    font-size: 27px;
+}
+
+
+#personcont{
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    width: 100%;
+    height: 81%;
+    margin-top: 2%;
+    /* background-color: #fff; */
+   
+   
+}
+#person{
+    /* white-space: nowrap; */
+    margin-top: 8px;
+    text-align: left;
+    width: 100%;
+    height: 55px;
+    align-items: center;
+   
+     display: flex;
+     /* background-color: transparent; */
+     
+    /* background-color: #f69696; */
+    padding: 0 40px;
+}
+#person #smcirc{
+    border-radius: 50%;
+    width: 43px;
+    height: 43px;
+    margin-left: 45px;
+    object-position: center;
+    /* background-color: red; */
+    overflow: hidden;
+}
+#person h1{
+    color: #fff;
+    
+    margin-left: 25px;
+    font-weight: 400;
+    font-size: 22px;
+}
+#smcirc>img{
+    object-fit: cover;
+    width: 100%;
+    border-radius: 50%;
+    object-position: center;
+}
+#personcont::-webkit-scrollbar{
+    display: none;
+    
+}
+button{
+    cursor: pointer;
+}
+#searchbar #postbtn{
+    padding: 10px 75px;
+    background-color: rgb(255, 206, 214);
+    font-family: monserrat;
+    color: #000;
+    border-radius: 100px;
+    margin-left: 75px;
+    border: none;
+    font-size: 20px;
+    margin-top: 30px;
+    
+
+}
+#searchbar #postbtn1{
+    padding: 10px 46px;
+    background-color: rgb(186, 121, 255);
+
+    font-family: monserrat;
+    color: #000;
+    border-radius: 100px;
+    margin-left: 75px;
+    border: none;
+    font-size: 20px;
+    white-space: nowrap;
+    margin-top: 10px;
+    
+
+}
+
+#searchbar #postbtn2{
+    width: 52px;
+    height: 52px;
+    background-color:rgb(178, 0, 0);
+
+    color: #000;
+    border-radius: 50%;
+    margin-left: 120px;
+    border: none;
+    font-size: 26px;
+    font-weight: 900;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    margin-top: 45px;
+    
+
+}
+#logout{
+    font-size: 25px;
+    position: absolute;
+    left: 5%;
+    font-style: italic;
+    font-family: gilroy;
+    top: 150%;         
+    letter-spacing: .5px;
+    color: #fff;
+}

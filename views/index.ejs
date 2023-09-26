@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.3.0/remixicon.css"
+    integrity="sha512-0JEaZ1BDR+FsrPtq5Ap9o05MUwn8lKs2GiCcRVdOH0qDcUcCoMKi8fDVJ9gnG8VN1Mp/vuWw2sMO0SQom5th4g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+  <div id="main">
+    <div id="frame">
+      <div id="first">
+        <div id="box1">
+          <div class="child">
+            <h1>Sign in</h1>
+          </div>
+          <div id="child2" class="child">
+            <div id="inner"><i class="ri-facebook-fill"></i></div>
+            <div id="inner"><i class="ri-google-fill"></i></div>
+            <div id="inner"><i class="ri-linkedin-fill"></i></div>
+          </div>
+          <div class="child">
+            <h4>or use your account</h4>
+          </div>
+        </div>
+        <form action="/login" method="post">
+          <div id="formcont">
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="password">
+            <h4>Forgot your password?</h4>
+            <button>log in</button>
+          </div>
+      </div>
+      </form>
+
+      <div id="sec">
+        <div class="secbox">
+          <div class="child">
+            <h1>Hello,Friend!</h1>
+          </div>
+          <div class="child">
+            <div id="secinner">
+              <h2>Enter your personal detailes and start</h2>
+              <br>
+              <h2>journey with us</h2>
+            </div>
+          </div>
+          <div class="child"><button class="signup" id="button2">Sign UP</button></div>
+        </div>
+      </div>
+      <div id="fourth">
+        <div class="secbox">
+          <div class="child">
+            <h1>Welcome,back!</h1>
+          </div>
+          <div class="child">
+            <div id="secinner">
+              <h2>To keep connected with us please login</h2>
+              <br>
+              <h2>with your personal info</h2>
+            </div>
+          </div>
+          <div class="child"><button class="signin" id="button2">log in</button></div>
+        </div>
+      </div>
+      <div id="third">
+        <div id="box2">
+          <div class="child">
+            <h1>Create Account</h1>
+          </div>
+          <div id="child2" class="child">
+            <div id="inner"><i class="ri-facebook-fill"></i></div>
+            <div id="inner"><i class="ri-google-fill"></i></div>
+            <div id="inner"><i class="ri-linkedin-fill"></i></div>
+          </div>
+          <div class="child">
+            <h4>or use your username for login</h4>
+          </div>
+        </div>
+        <form action="/register" method="post">
+          <div id="formcont2">
+            <input id="resinp" type="text" name="username" placeholder="Fullname">
+            <input type="email" name="email" placeholder="Email">
+            <input type="password" name="password" placeholder="password">
+
+            <button id="signupbtn">Sign up</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"
+    integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"
+      integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+    function pageanime() {
+
+      document.querySelector('.signup').addEventListener('click', function () {
+
+        gsap.to("#first", {
+          x: 515,
+          duration: .7,
+
+        })
+        gsap.to("#sec", {
+          x: -515,
+          duration: .7,
+
+
+        })
+
+        setTimeout(function () {
+          document.querySelector('#first').style.display = 'none';
+          document.querySelector('#sec').style.display = 'none';
+        }, 600)
+        setTimeout(function () {
+          document.querySelector('#third').style.display = 'initial';
+          document.querySelector('#fourth').style.display = 'initial';
+        }, 600)
+      })
+      document.querySelector('.signin').addEventListener('click', function () {
+        gsap.to("#first", {
+          x: 0,
+          duration: 1,
+        })
+        gsap.to("#sec", {
+          x: 0,
+          duration: 1,
+        })
+
+
+        document.querySelector('#first').style.display = 'initial';
+        document.querySelector('#sec').style.display = 'initial';
+
+        document.querySelector('#third').style.display = 'none';
+
+        document.querySelector('#fourth').style.display = 'none';
+
+
+      })
+    }
+    pageanime();
+
+    function redblackfield() {
+      var btn = document.querySelector("#signupbtn")
+      var resinp = document.querySelector("#resinp")
+      resinp.addEventListener('input', function () {
+        var vl = resinp.value
+        if (vl.trim().length > 0) {
+
+          axios.get(`/username/${vl}`)
+            .then(function (reply) {
+              if (reply.data.found) {
+                resinp.style.outlineColor = 'red'
+                btn.setAttribute("disabled", true)
+                btn.style.backgroundColor = "rgb(220, 102, 102)"
+
+              } else {
+                resinp.style.outlineColor = 'black'
+                btn.removeAttribute("disabled", false)
+                btn.style.backgroundColor = "rgb(255, 59, 59)"
+
+              }
+            })
+        } else {
+
+          resinp.style.outlineColor = 'black'
+          btn.setAttribute("disabled", true)
+          btn.style.backgroundColor = "rgb(220, 102, 102)"
+
+        }
+      })
+
+
+
+    }
+    redblackfield();
+    
+
+  </script>
+</body>
+
+</html>
