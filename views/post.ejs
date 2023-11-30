@@ -16,7 +16,7 @@
     <button>Create</button>
   </form>
     <h1>Your all posts.....</h1>
-    <% user.post.forEach(function(post){ %>
+    <% user.post.reverse().forEach(function(post){ %>
       <div id="card">
         <div class="inner1">
           <div id="smcirc"><img src="/images/uploads/<%=post.user.profilephoto%>" alt=""></div>
